@@ -12,9 +12,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Teams</a>
                 </li>
+                @auth
+                <div>
+                    <form action="/logout" method='POST'>
+                        @csrf
+                        <button type='submit' class="btn btn-primary">Logout</button>
+                    </form>
+                </div>
+
+                @else
                 <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
+                    <a class="nav-link" href="/register">Register</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                @endauth
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
