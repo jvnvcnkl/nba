@@ -30,4 +30,4 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::post('/logout', [AuthController::class, 'logout']);
-Route::post('/team/{team}/comments', [CommentController::class, 'store'])->name('createComment');
+Route::post('/team/{team}/comments', [CommentController::class, 'store'])->name('createComment')->middleware('forbidden.comment');
