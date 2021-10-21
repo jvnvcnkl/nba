@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController;
+
 
 
 /*
@@ -25,6 +27,7 @@ Route::get('/register', [AuthController::class, 'getRegisterForm']);
 Route::get('/login', [AuthController::class, 'getLoginForm']);
 
 Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::post('/logout', [AuthController::class, 'logout']);
+Route::post('/team/{team}/comments', [CommentController::class, 'store'])->name('createComment');
